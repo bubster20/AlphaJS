@@ -1,0 +1,57 @@
+//Alpha JS Demo Build 2
+//This has a whole reset!
+var _AlphaJS = new AlphaJSMainConsole();
+function AlphaJSMainConsole() {
+	this.html = function(selector,id) {
+		if (id == "/id") {
+			var AlphaSET = document.getElementById(selector);
+		}
+		else {
+			return "id not correct!";
+		}
+		return {
+			keyEvent : function(key_type,key_id) {
+				if (key_type == "mouse") {
+					return {
+						$click : function(to) {
+							AlphaSET.onclick = to;
+						},
+						$over : function(to) {
+							AlphaSET.onmouseover = to;
+						},
+						$out : function(to) {
+							AlphaSET.onmouseout = to;
+						},
+					}
+				}
+				else if (key_type == "key") {
+					
+				}
+				else {
+					return "/Console/html/keyevent: Your key type was not found.";
+				}
+			},
+		}
+	}
+	
+	
+	
+	
+	this.js = function() {
+		
+		
+		return {
+			loops : function(type) {
+				if (type == "complete") {
+					return {
+						
+					}
+				}
+				
+			}
+			
+			
+			
+		}
+	}
+}
