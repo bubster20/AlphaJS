@@ -1,0 +1,118 @@
+
+//Alpha JS
+// you can change the following variable name to anything else.
+var AlphaCONT;
+var AlphaSET;
+var _ = function(selector,type) {
+	if (type == "/id") {
+		AlphaSET = document.getElementById(selector);
+	}
+	if (type == "/name") {
+		AlphaSET = document.getElementsByName(selector);
+	}
+	if (type == "/class") {
+		AlphaSET = document.getElementsByClassName(selector);
+	}
+	return {
+		info : function() {
+			alert('Created by Matthew Sheeler, 2015 v.6[4]. Alpha Project ownes full property of this.')
+		},
+		
+		test : function() {
+			alert('positive')
+		},
+		
+		suicide : function() {
+			AlphaSET.innerHTML = "Goodbye cruel world...";
+			setTimeout(function() {
+				AlphaSET.innerHTML = "Bang!";
+				setTimeout(function() {
+					AlphaSET.innerHTML = "";
+					AlphaSET.style = "";
+				},300);
+			}, 2000);
+		},
+		
+		resize : function(dist) {
+			var alphaTimeout = 0;
+			AlphaSET.style.width = "";
+			AlphaSET.style.height = "";
+			addDist();
+			function addDist() {
+				if (alphaTimeout < dist) {
+					AlphaSET.style.width = alphaTimeout + "px";
+					AlphaSET.style.height = alphaTimeout + "px";
+					alphaTimeout++;
+					setTimeout(function() {
+						addDist();
+					}, 10);
+				}
+			}
+		},
+		
+		keyEvent : function(key_type) {
+			if (key_type == "press") {
+				return {
+					$click : function(to) {
+						AlphaSET.onclick = to;
+					}
+				}
+			
+			}
+			
+			else if (key_type == "mouse") {
+				return {
+					$over : function(to) {
+						AlphaSET.onmouseover = to;
+					},
+					$out : function(to) {
+						AlphaSET.onmouseout = to;
+					}
+				}
+			}
+			
+			
+			
+			
+			},
+			
+			styler : function(sel, prop) {
+				if (sel == "background") {
+					AlphaSET.style.background = prop;
+				}
+				else if (sel == "color") {
+					AlphaSET.style.color = prop;
+				}
+				else if (sel == "width") {
+					AlphaSET.style.width = prop;
+				}
+				else if (sel == "height") {
+					AlphaSET.style.width = prop;
+				}
+				else if (sel == "border") {
+					AlphaSET.style.border = prop;
+				}
+				else if (sel == "text-shadow") {
+					AlphaSET.style.textShadow = prop;
+				}
+			},
+		
+		
+			ins : function(to) {
+				AlphaSET.innerHTML = to;
+			},
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}
